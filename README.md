@@ -1,11 +1,47 @@
 # Code Byters
-## Digital Transformation Hackathon
+#### Digital Transformation Hackathon 2021
 
-[![0020](https://user-images.githubusercontent.com/85012228/120082121-d5a12780-c0c9-11eb-96a4-a31ce43f7402.png)](https://www.google.com)
+## Challenge & Solution
 
-## Section 2
+![Demo Video](image_url)
 
-```python
-import azure.iot.device as azure
-azure.client = init()
-```
+![Solution Block Diagram](image_url)
+
+## Object Detection
+
+![Original Video](image_url)
+
+## IoT Edge Device
+
+## Modules
+### Object Detection
+
+''' python
+from azure.iot.device import HubClient
+
+
+'''
+
+### MQTT Publisher (receiver)
+
+![MQTT Video](image_url)
+
+### Helmet Detection
+#### Trainig the Model
+
+[Link to Colab](link to collab)
+
+![Training Video](image_url)
+
+#### IoT Device Implementation
+
+![Webcam Video](image_url)
+
+## Visualization
+### InfluxDB
+
+![Screenshot](image_url)
+
+### Grafana Daashboard
+
+![Screenshot](image_url)
