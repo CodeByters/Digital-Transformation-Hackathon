@@ -16,11 +16,11 @@
 ## Modules
 ### Object Detection
 
-''' python
+``` python
 from azure.iot.device import HubClient
 
 
-'''
+```
 
 ### MQTT Publisher (receiver)
 
