@@ -4,13 +4,13 @@
 
 ## Challenge & Solution
 
-![Demo Video](image_url)
+[![final-demo](https://user-images.githubusercontent.com/85012228/120103786-0a5cbf80-c15a-11eb-8907-893b20bc605a.png)](https://youtu.be/s8Ydi4YPymU?list=PLItZkaSiINE6jMAruIIjf6_oiqE7TI6m6)
 
-![Solution Block Diagram](image_url)
+<img width="500" alt="MQTT" src="https://user-images.githubusercontent.com/85012228/120103756-e26d5c00-c159-11eb-9e80-b432ea64f3f1.png">
 
 ## Object Detection
 
-![Original Video](image_url)
+[![Object-detection](https://user-images.githubusercontent.com/85012228/120103938-bb635a00-c15a-11eb-98bd-8d70245bd2ab.png)](https://youtu.be/VA3kkuE63co?list=PLItZkaSiINE6jMAruIIjf6_oiqE7TI6m6)
 
 ## IoT Edge Device
 
@@ -25,7 +25,7 @@ from azure.iot.device import HubClient
 
 ### MQTT Publisher (receiver)
 
-![MQTT Video](image_url)
+[![MQTT Video](https://user-images.githubusercontent.com/85012228/120103964-dfbf3680-c15a-11eb-8e70-ac28cab445c8.png)](https://youtu.be/YNCJL30d3t8?list=PLItZkaSiINE6jMAruIIjf6_oiqE7TI6m6)
 
 ## Helmet Detection
 
@@ -49,11 +49,11 @@ Follow this link to view the training on [Code byters COLAB](https://colab.resea
 * Export saved YOLOv5 weights for future inference
 * Run detection code on local device using custom weight
 
-![training Video](image_url)
+[![Helmet-training](https://user-images.githubusercontent.com/85012228/120104030-2b71e000-c15b-11eb-88d3-3ffb658a9c1a.png)](https://youtu.be/p8nKQbGHa94?list=PLItZkaSiINE6jMAruIIjf6_oiqE7TI6m6)
 
 ### IoT Device Implementation
 
-![Webcam Video](image_url)
+[![Helmet-training](https://user-images.githubusercontent.com/85012228/120104050-493f4500-c15b-11eb-8da3-23b309ddb22a.png)](https://youtu.be/XRuh1KX5Yr8?list=PLItZkaSiINE6jMAruIIjf6_oiqE7TI6m6)
 
 ## Visualization
 ### InfluxDB
