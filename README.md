@@ -93,9 +93,17 @@ Follow this link to view the training on [Code byters COLAB](https://colab.resea
 
 ### Grafana Daashboard
 
+We created a dashboard on Grafana for data visualization and monitoring. The data source is configured to import real time data from Influx DB. This dashboard has three main sections that are used to monitor differernt helath and safety conditions :
+  1. Helmet Detection: used to monitor if the personas in workplace are wearing proper PPE or not, an alert will be creatd and sent to the manager when the HSE rule is violated.
+  1. Workplace Monitoring: This monitored the number of people and car in the workplace and was used mainly to limit the number of people in an area and alert when this is violated.
+  1. Vehicle Monitoring: The same model was used to restrict an area and allow no vehicles in it. Again, an alert was triggered when a vehicle enters the area.
+
 ![Grafana](https://user-images.githubusercontent.com/85012228/120094459-26943880-c129-11eb-8d52-e0b5f2d89153.png)
 
-#### Alerting system and notification channel 
+#### Alerting system and notification channel
+
+Below you can see the different alerts that can be seen on the alerts panel on Grafana. An email is sent whenever a violation occurs to notify the adimns.
+
 <img width="1537" alt="Alerting-system" src="https://user-images.githubusercontent.com/85012228/120094492-5b07f480-c129-11eb-9662-55ec5f1d08e4.png">
 <img width="1311" alt="Notification-Channel" src="https://user-images.githubusercontent.com/85012228/120094494-5d6a4e80-c129-11eb-8158-4bb207659b94.png">
 
