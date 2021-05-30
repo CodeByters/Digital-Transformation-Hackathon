@@ -20,7 +20,7 @@ Below is a block diagram showing the complete solution with the different module
 
 ## Object Detection
 
-This was the main and first requirement for the chalenge. Implementing this required learning about Docker Containers in order to adjust the provided dockerfile to work correctly. As a team we haven't had prior experience in Docker so that was a challenge that took a significant amount of time. The video below shows the setup and functioning of the object detection application that detects people, cars and animals in a given video.
+This was the main and first requirement for the challenge. Implementing this required learning about Docker Containers in order to adjust the provided dockerfile to work correctly. As a team we haven't had prior experience in Docker so that was a challenge that took a significant amount of time. The video below shows the setup and functioning of the object detection application that detects people, cars and animals in a given video.
 
 [![Object-detection](https://user-images.githubusercontent.com/85012228/120103938-bb635a00-c15a-11eb-98bd-8d70245bd2ab.png)](https://youtu.be/VA3kkuE63co?list=PLItZkaSiINE6jMAruIIjf6_oiqE7TI6m6)
 
@@ -28,7 +28,9 @@ This application was further developed to detect person attributes (eg. has_hat,
 
 ## IoT Edge Device
 
+In order to deploy the modules on the Azure Edge Platform we had to create a device on the DGIoTHub provided. Below you can see the configuration of the running device. This had all three modules running on it and the device itself was simulated on the development machine.
 
+![WhatsApp Image 2021-05-30 at 16 10 57](https://user-images.githubusercontent.com/85012228/120105506-ddaca600-c161-11eb-9451-646e0c4507be.jpeg)
 
 ## Modules
 ### Object Detection
