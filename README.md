@@ -40,7 +40,7 @@ Follow this link to view the training on [Code byters COLAB](https://colab.resea
 
 * Install YOLOv5 dependencies
 * Download custom YOLOv5 object detection data
-* Write our YOLOv5 Training configuration
+* Write YOLOv5 Training configuration
 * Run YOLOv5 training
 * Evaluate YOLOv5 performance
 * Visualize YOLOv5 training data
