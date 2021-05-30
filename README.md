@@ -8,7 +8,7 @@
 
 Our challenge was to use the Edge IoT platform to create a video analysis application for use in the workplace in different scenarios. Video analysis applications can be used to detect leaks, H&S violations, combustion patterns, etc.
 
-For our solution we have applied computer vision concepts along with IoT solutions to develop different modules that run on an Edge IoT device. These modules included an [object detection module](#object-detection) that monitors people, cars and animals in a video feed. It also included an [MQTT publisher module](#mqtt-publisher-receiver) that uses the Agora SDK to collect data from other modules and send them on an MQTT channel. Lastly, we trained a [helmet detection model](#trainig-the-model-using-yolo-v5) to monitor H&S in the workplace. We deployed it to the device and linked it to a [live camera feed](#iot-device-implementation).
+For our solution we have applied computer vision concepts along with IoT solutions to develop different modules that run on an Edge IoT device. These modules included an [object detection module](#object-detection) that monitors people, cars and animals in a video feed. It also included an [MQTT publisher module](#mqtt-publisher-receiver) that uses the **Agora SDK** to collect data from other modules and send them on an MQTT channel. Lastly, we trained a [helmet detection model](#trainig-the-model-using-yolo-v5) to monitor H&S in the workplace. We deployed it to the device and linked it to a [live camera feed](#iot-device-implementation).
 
 All the collected data was sent through MQTT and Node-Red to InfluxDB cloud and then injested into Grafana for visualisation. A demo of all the modules being visualised can be seen below:
 
@@ -42,19 +42,31 @@ In order to deploy the modules on the Azure Edge Platform we had to create a dev
 
 ### MQTT Publisher (receiver)
 
+The device used the MQTT standard to send the data to external sources. The "receiver" module used the **Agora SDK** collected the data from the other modules through the EdgeHub and then send the data on different topics to the MQTT broker running on the local machine. This was processed using Node-Red and sent to a cloud bucket on InfluxDB.
+
+The video below shows the setup of the **Agora SDK** Environment and the development and running of the module includeing the MQTT Broker, Node-Red and InfluxDB.
+
 [![MQTT Video](https://user-images.githubusercontent.com/85012228/120103964-dfbf3680-c15a-11eb-8e70-ac28cab445c8.png)](https://youtu.be/YNCJL30d3t8?list=PLItZkaSiINE6jMAruIIjf6_oiqE7TI6m6)
+
+Below is a code snippet for the main logic inside the module:
+
+```python
+import paho.mqtt.client as mqtt
+
+```
 
 ## Helmet Detection
 
-### Trainig the model using Yolo-v5
+The development of this module oncluded collecting a dataset, training the custom model, dockerizing the application and deploying to the Edge Device and linking it to a live camera feed.
 
-This Project is based on the [YOLOv5 repository](https://github.com/ultralytics/yolov5) by [Ultralytics](https://www.ultralytics.com/), and it is inspired by [PeterH0323](https://github.com/PeterH0323/Smart_Construction) 
+### Trainig the model using Yolo-v5
+The trainig is based on the [YOLOv5 repository](https://github.com/ultralytics/yolov5) by [Ultralytics](https://www.ultralytics.com/), and it is inspired by [PeterH0323](https://github.com/PeterH0323/Smart_Construction) 
 
 Dataset is downloaded from [nuvisionpower](https://github.com/njvisionpower/Safety-Helmet-Wearing-Dataset) and transformed into the required format using [Roboflow](https://roboflow.com/)
 
 Follow this link to view the training on [Code byters COLAB](https://colab.research.google.com/drive/1xCgBS7XCsMftAK2gccdvB4Gsx4K5APZX?usp=sharing)
 
-### Steps Covered in this Project
+#### Steps Covered in the training
 
 * Install YOLOv5 dependencies
 * Download custom YOLOv5 object detection data
@@ -70,7 +82,9 @@ Follow this link to view the training on [Code byters COLAB](https://colab.resea
 
 ### IoT Device Implementation
 
-[![Helmet-training](https://user-images.githubusercontent.com/85012228/120104050-493f4500-c15b-11eb-8da3-23b309ddb22a.png)](https://youtu.be/XRuh1KX5Yr8?list=PLItZkaSiINE6jMAruIIjf6_oiqE7TI6m6)
+
+
+[![Helmet-demo](https://user-images.githubusercontent.com/85012228/120104050-493f4500-c15b-11eb-8da3-23b309ddb22a.png)](https://youtu.be/XRuh1KX5Yr8?list=PLItZkaSiINE6jMAruIIjf6_oiqE7TI6m6)
 
 ## Visualization
 ### InfluxDB
