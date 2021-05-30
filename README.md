@@ -58,7 +58,7 @@ Follow this link to view the training on [Code byters COLAB](https://colab.resea
 ## Visualization
 ### InfluxDB
 
-![Screenshot](image_url)
+![InfluxDB](https://user-images.githubusercontent.com/85012228/120104259-3da04e00-c15c-11eb-9fcf-8e0bb2b497b9.jpg)
 
 ### Grafana Daashboard
 
