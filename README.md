@@ -26,6 +26,12 @@ This was the main and first requirement for the challenge. Implementing this req
 
 This application was further developed to detect person attributes (eg. has_hat, has_backpack, etc.) and was deployed as a dockerized Edge Application to our IoT Device. The data from the module was sent through the EdgeHub to the [MQTT publisher module](#mqtt-publisher-receiver).
 
+``` python
+from azure.iot.device import HubClient
+
+
+```
+
 ## IoT Edge Device
 
 In order to deploy the modules on the Azure Edge Platform we had to create a device on the DGIoTHub provided. Below you can see the configuration of the running device. This had all three modules running on it and the device itself was simulated on the development machine.
@@ -33,13 +39,6 @@ In order to deploy the modules on the Azure Edge Platform we had to create a dev
 ![WhatsApp Image 2021-05-30 at 16 10 57](https://user-images.githubusercontent.com/85012228/120105506-ddaca600-c161-11eb-9451-646e0c4507be.jpeg)
 
 ## Modules
-### Object Detection
-
-``` python
-from azure.iot.device import HubClient
-
-
-```
 
 ### MQTT Publisher (receiver)
 
