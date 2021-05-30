@@ -14,13 +14,21 @@ All the collected data was sent through MQTT and Node-Red to InfluxDB cloud and 
 
 [![final-demo](https://user-images.githubusercontent.com/85012228/120103786-0a5cbf80-c15a-11eb-8907-893b20bc605a.png)](https://youtu.be/s8Ydi4YPymU?list=PLItZkaSiINE6jMAruIIjf6_oiqE7TI6m6)
 
+Below is a block diagram showing the complete solution with the different modules deployed on the IoT device.
+
 <img width="500" alt="MQTT" src="https://user-images.githubusercontent.com/85012228/120103756-e26d5c00-c159-11eb-9e80-b432ea64f3f1.png">
 
 ## Object Detection
 
+This was the main and first requirement for the chalenge. Implementing this required learning about Docker Containers in order to adjust the provided dockerfile to work correctly. As a team we haven't had prior experience in Docker so that was a challenge that took a significant amount of time. The video below shows the setup and functioning of the object detection application that detects people, cars and animals in a given video.
+
 [![Object-detection](https://user-images.githubusercontent.com/85012228/120103938-bb635a00-c15a-11eb-98bd-8d70245bd2ab.png)](https://youtu.be/VA3kkuE63co?list=PLItZkaSiINE6jMAruIIjf6_oiqE7TI6m6)
 
+This application was further developed to detect person attributes (eg. has_hat, has_backpack, etc.) and was deployed as a dockerized Edge Application to our IoT Device. The data from the module was sent through the EdgeHub to the [MQTT publisher module](#mqtt-publisher-receiver).
+
 ## IoT Edge Device
+
+
 
 ## Modules
 ### Object Detection
