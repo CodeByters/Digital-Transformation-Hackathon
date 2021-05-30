@@ -2,7 +2,15 @@
 # Code Byters
 #### Digital Transformation Hackathon 2021
 
+
+
 ## Challenge & Solution
+
+Our challenge was to use the Edge IoT platform to create a video analysis application for use in the workplace in different scenarios. Video analysis applications can be used to detect leaks, H&S violations, combustion patterns, etc.
+
+For our solution we have applied computer vision concepts along with IoT solutions to develop different modules that run on an Edge IoT device. These modules included an [object detection module](#object-detection) that monitors people, cars and animals in a video feed. It also included an [MQTT publisher module](#mqtt-publisher-(receiver)) that uses the Agora SDK to collect data from other modules and send them on an MQTT channel. Lastly, we trained a [helmet detection model](#training-the-model-with-yolo-v5) to monitor H&S in the workplace. We deployed it to the device and linked it to a [live camera feed](#iot-device-implementation).
+
+All the collected data was sent through MQTT and Node-Red to InfluxDB cloud and then injested into Grafana for visualisation. A demo of all the modules being visualised can be seen below:
 
 [![final-demo](https://user-images.githubusercontent.com/85012228/120103786-0a5cbf80-c15a-11eb-8907-893b20bc605a.png)](https://youtu.be/s8Ydi4YPymU?list=PLItZkaSiINE6jMAruIIjf6_oiqE7TI6m6)
 
