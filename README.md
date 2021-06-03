@@ -78,7 +78,7 @@ Follow this link to view the training on [Code byters COLAB](https://colab.resea
 * Export saved YOLOv5 weights for future inference
 * Run detection code on local device using custom weight
 
-[![Helmet-training](https://user-images.githubusercontent.com/85012228/120104030-2b71e000-c15b-11eb-88d3-3ffb658a9c1a.png)](https://youtu.be/p8nKQbGHa94?list=PLItZkaSiINE6jMAruIIjf6_oiqE7TI6m6)
+[![Helmet-training](https://user-images.githubusercontent.com/85012228/120104030-2b71e000-c15b-11eb-88d3-3ffb658a9c1a.png)](https://youtu.be/nJqgFT8EmWM)
 
 ### IoT Device Implementation
 
