@@ -29,8 +29,18 @@ This was the main and first requirement for the challenge. Implementing this req
 This application was further developed to detect person attributes (eg. has_hat, has_backpack, etc.) and was deployed as a dockerized Edge Application to our IoT Device. The data from the module was sent through the EdgeHub to the [MQTT publisher module](#mqtt-publisher-receiver).
 
 ``` python
-from azure.iot.device import HubClient
+from azure.iot.device import IoTHubModuleClient
 
+module_client = IoTHubModuleClient.create_from_edge_environment()
+
+payload = {'data': {
+                'start': 0,
+                'persons': currentPersons,
+                'cars' : currentCar,
+                'animals' : currentAnimal
+           }}
+
+module_client.send_message_to_output(json.dumps(payload), "extData")
 
 ```
 
