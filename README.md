@@ -106,7 +106,7 @@ The code could use the model and detect whether a person is wearing a helmet or 
 
 In order to give access to the webcam from inside the docker container the Container Create Options had to be correctly set up on the Edge module as seen below.
 
-'''
+```
 {
   "HostConfig": {
     "Devices": [
@@ -118,7 +118,7 @@ In order to give access to the webcam from inside the docker container the Conta
     ]
   }
 }
-'''
+```
 
 [![Helmet-demo](https://user-images.githubusercontent.com/85012228/120104050-493f4500-c15b-11eb-8da3-23b309ddb22a.png)](https://youtu.be/XRuh1KX5Yr8?list=PLItZkaSiINE6jMAruIIjf6_oiqE7TI6m6)
 
