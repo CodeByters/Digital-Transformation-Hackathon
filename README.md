@@ -2,7 +2,7 @@
 # Code Byters
 #### Digital Transformation Hackathon 2021
 
-
+We are a group of three passionate engineers that love to learn new skills. We have teamed up to develop an IoT Edge Application that uses computer vision to make the workplace safer for everyone. This is a brief description of our solution that outlines the different modules that made this application possible.
 
 ## Challenge & Solution
 
@@ -10,13 +10,15 @@ Our challenge was to use the Edge IoT platform to create a video analysis applic
 
 For our solution we have applied computer vision concepts along with IoT solutions to develop different modules that run on an Edge IoT device. These modules included an [object detection module](#object-detection) that monitors people, cars and animals in a video feed. It also included an [MQTT publisher module](#mqtt-publisher-receiver) that uses the **Agora SDK** to collect data from other modules and send them on an MQTT channel. Lastly, we trained a [helmet detection model](#trainig-the-model-using-yolo-v5) to monitor H&S in the workplace. We deployed it to the device and linked it to a [live camera feed](#iot-device-implementation).
 
+These modules were setup to run on the Edge Device on a **virtual machine running ubuntu 20** due to the requirements of the code. This was set up on a windows machine and all the prerequisites were installed on the machine to run the modules and the device.
+
 All the collected data was sent through MQTT and Node-Red to InfluxDB cloud and then injested into Grafana for visualisation. A demo of all the modules being visualised can be seen below:
 
 [![final-demo](https://user-images.githubusercontent.com/85012228/120103786-0a5cbf80-c15a-11eb-8907-893b20bc605a.png)](https://youtu.be/s8Ydi4YPymU?list=PLItZkaSiINE6jMAruIIjf6_oiqE7TI6m6)
 
 Below is a block diagram showing the complete solution with the different modules deployed on the IoT device.
 
-<img width="500" alt="MQTT" src="https://user-images.githubusercontent.com/85012228/120103756-e26d5c00-c159-11eb-9e80-b432ea64f3f1.png">
+![flow-chart](https://user-images.githubusercontent.com/85012228/121373898-1f023a00-c948-11eb-9ab9-c372881ff19c.png)
 
 ## Object Detection
 
@@ -53,6 +55,24 @@ Below is a code snippet for the main logic inside the module:
 ```python
 import paho.mqtt.client as mqtt
 
+client = mqtt.Client()
+client.on_connect = on_connect
+client.on_message = on_message
+
+client.connect("172.17.0.1", 1883, 60)
+client.loop_start()
+
+def on_connect(client, userdata, flags, rc):
+    logging.debug("Connected:" + str(rc))
+    client.subscribe($SYS/#")
+    
+def on_message(client, userdata, msg):
+    logging.debug(msg.topic + " " + str(msg.payload))
+    
+if SrcModule == "videoAnalysisModule":
+    client.publish("det/object", payload)
+elif SrcModule == "helmetDetection":
+    client.publish("det/helmet", payload)
 ```
 
 ## Helmet Detection
@@ -82,12 +102,30 @@ Follow this link to view the training on [Code byters COLAB](https://colab.resea
 
 ### IoT Device Implementation
 
+The code could use the model and detect whether a person is wearing a helmet or not in a video file. This was first modyfied to use the webcam on the laptop as a live camera feed. This was analysed by the program and an output live feed could run showing the result. The program was then dockerised in order for us to be able to run it on the Edge Device. A pytorch docker base was used and requirements installed and the code was run inside the container. The docker image was pushed to the local registry and ran on an Edge module.
 
+In order to give access to the webcam from inside the docker container the Container Create Options had to be correctly set up on the Edge module as seen below.
+
+'''
+{
+  "HostConfig": {
+    "Devices": [
+      {
+        "PathOnHost": "/dev/video0",
+        "PathInContainer": "/dev/video0",
+        "CgroupPermissions": "mrw"
+      }
+    ]
+  }
+}
+'''
 
 [![Helmet-demo](https://user-images.githubusercontent.com/85012228/120104050-493f4500-c15b-11eb-8da3-23b309ddb22a.png)](https://youtu.be/XRuh1KX5Yr8?list=PLItZkaSiINE6jMAruIIjf6_oiqE7TI6m6)
 
 ## Visualization
 ### InfluxDB
+
+The data was collected from the different modules theough the EdgeHub and sent to influxdb on the cloud. Influxdb is a realtime timeseries database that is widely uused in IoT applications. Using the cloud allowed us to visualize the data on any device and not just the development device.
 
 ![InfluxDB](https://user-images.githubusercontent.com/85012228/120104259-3da04e00-c15c-11eb-9fcf-8e0bb2b497b9.jpg)
 
@@ -100,11 +138,8 @@ We created a dashboard on Grafana for data visualization and monitoring. The dat
 
 ![Grafana](https://user-images.githubusercontent.com/85012228/120094459-26943880-c129-11eb-8d52-e0b5f2d89153.png)
 
-#### Alerting system and notification channel
+## Alerting system and notification channel
 
 Below you can see the different alerts that can be seen on the alerts panel on Grafana. An email is sent whenever a violation occurs to notify the adimns.
 
-<img width="1537" alt="Alerting-system" src="https://user-images.githubusercontent.com/85012228/120094492-5b07f480-c129-11eb-9662-55ec5f1d08e4.png">
-<img width="1311" alt="Notification-Channel" src="https://user-images.githubusercontent.com/85012228/120094494-5d6a4e80-c129-11eb-8158-4bb207659b94.png">
-
-
+![Visualization](https://user-images.githubusercontent.com/85012228/121374658-be273180-c948-11eb-9531-847462d31170.png)
