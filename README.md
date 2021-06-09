@@ -26,7 +26,7 @@ This was the main and first requirement for the challenge. Implementing this req
 
 [![Object-detection](https://user-images.githubusercontent.com/85012228/120103938-bb635a00-c15a-11eb-98bd-8d70245bd2ab.png)](https://youtu.be/VA3kkuE63co?list=PLItZkaSiINE6jMAruIIjf6_oiqE7TI6m6)
 
-This application was further developed to detect person attributes (eg. has_hat, has_backpack, etc.) and was deployed as a dockerized Edge Application to our IoT Device. The data from the module was sent through the EdgeHub to the [MQTT publisher module](#mqtt-publisher-receiver).
+This application was further developed to detect person attributes (eg. has_hat, has_backpack, etc.) and was deployed as a dockerized Edge Application to our IoT Device. The data from the module was sent through the EdgeHub using the code below to the [MQTT publisher module](#mqtt-publisher-receiver).
 
 ``` python
 from azure.iot.device import IoTHubModuleClient
