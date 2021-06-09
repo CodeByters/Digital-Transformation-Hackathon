@@ -104,7 +104,7 @@ Follow this link to view the training on [Code byters COLAB](https://colab.resea
 
 The code could use the model and detect whether a person is wearing a helmet or not in a video file. This was first modyfied to use the webcam on the laptop as a live camera feed. This was analysed by the program and an output live feed could run showing the result. The program was then dockerised in order for us to be able to run it on the Edge Device. A pytorch docker base was used and requirements installed and the code was run inside the container. The docker image was pushed to the local registry and ran on an Edge module.
 
-In order to give access to the webcam from inside the docker container the Container Create Options had to be correctly set up on the Edge module as seen below.
+In order to give access to the webcam from inside the docker container the Container Create Options had to be correctly set up on the Edge device while setting up the module as seen below.
 
 ```
 {
